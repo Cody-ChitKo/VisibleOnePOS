@@ -45,8 +45,34 @@ public partial class MemberList : ContentPage
         }
     }
 
-    private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+    //private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+    //{
+    //    var previous = e.PreviousSelection;
+    //    var current = e.CurrentSelection;
+
+    //    memberViewModel.SelectedMember = e.CurrentSelection[0] as MemberModel;
+
+    //    if (memberViewModel.SelectedMember != null)
+    //    {
+    //        Navigation.PushAsync(new MemberDetails(memberViewModel.SelectedMember));
+    //    }
+    //    else
+    //    {
+    //        Debug.WriteLine("SelectedServices is null");
+    //    }
+    //}
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
+        MemberModel memberModel = memberViewModel.SelectedMember;
+       // await Navigation.PushAsync(new MemberDetails(memberViewModel.SelectedMember));
+    }
+
+    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var previous = e.PreviousSelection;
+        var current = e.CurrentSelection;
+
         memberViewModel.SelectedMember = e.CurrentSelection[0] as MemberModel;
 
         if (memberViewModel.SelectedMember != null)
@@ -57,10 +83,5 @@ public partial class MemberList : ContentPage
         {
             Debug.WriteLine("SelectedServices is null");
         }
-    }
-
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-       // await Navigation.PushAsync(new MemberDetails(memberViewModel.SelectedMember));
     }
 }

@@ -9,83 +9,160 @@
     <ContentPage.BindingContext>
         <vmodel:MemberViewModel />
     </ContentPage.BindingContext>
-    
-    <VerticalStackLayout>
-        <StackLayout>
+
+    <StackLayout>
+        <StackLayout HeightRequest="50">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackLayout Grid.Row="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="90*" />
-                            <ColumnDefinition Width="15*" />
-                        </Grid.ColumnDefinitions>
-                        <Entry x:Name="txtMemberName" Grid.Column="0"
-                        Placeholder="Member Name" WidthRequest="250"/>
-                        <Image Source="search_icon.png" Grid.Column="1"
-                    BackgroundColor="Transparent"/>
-                    </Grid>
-                </StackLayout>
-                <StackLayout Grid.Row="1">
-                    <Frame CornerRadius="2" BorderColor="{DynamicResource MemuBgColor}"  BackgroundColor="{DynamicResource AppBgColor}">
-                        <ScrollView>
-                            <CollectionView ItemsSource="{Binding MembersList}"
-                                        SelectionMode="Single"
-                                        SelectionChanged="OnCollectionViewSelectionChanged"
-                                        SelectedItem="{Binding SelectedMember}"
-                                        EmptyView="No items to display">
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Frame Margin="0,1" BackgroundColor="LightGray"
-                                           Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70*" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="txtMemberName" Grid.Column="0"
+                  Placeholder="Member Name" WidthRequest="250"/>
+                <Image Source="search_icon.png" Grid.Column="1" HeightRequest="30" WidthRequest="30" HorizontalOptions="StartAndExpand"
+                BackgroundColor="Transparent"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout>
+            <!--<ListView ItemsSource="{Binding MembersList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                                            <StackLayout>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="*" />
-                                                        <RowDefinition Height="*" />
-                                                        <RowDefinition Height="*" />
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="30*"/>
-                                                        <ColumnDefinition Width="70*"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <Frame  Grid.Column="0" CornerRadius="50" Grid.RowSpan="3" BackgroundColor="Transparent"
-                                                            BorderColor="AliceBlue">
-                                                        <Image Source="avatar_man.png"
-                                                            Aspect="AspectFill"/>
-                                                    </Frame>
-                                                    
+                                <Frame Grid.RowSpan="2" CornerRadius="50" BackgroundColor="Transparent"
+                              HeightRequest="60" WidthRequest="60" BorderColor="{DynamicResource MainBgColor}"
+                              HorizontalOptions="Center">
+                                    <Image HorizontalOptions="CenterAndExpand"
+                                Source="avatar_man.png"
+                                Aspect="AspectFill"
+                                HeightRequest="60"
+                                WidthRequest="60" />
+                                </Frame>
 
-                                                    <Label Text="{Binding MemberName}" FontAttributes="Bold,Italic" TextColor="Black"
-                                                       Grid.Row="0" Grid.Column="1"/>
-                                                    <Label Text="{Binding Email}" FontSize="10" TextColor="Black"
-                                                       Grid.Row="1" Grid.Column="1"/>
-                                                    <Label Text="{Binding Phone}" FontSize="10" TextColor="Black"
-                                                       Grid.Row="2" Grid.Column="1"/>
+                                <Label Grid.Column="1"
+                        Text="{Binding MemberName}"
+                        FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding Email}"
+                        FontAttributes="Italic"
+                        VerticalOptions="End" />
 
-                                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+            
+            <!--<Frame CornerRadius="2" BorderColor="{DynamicResource MemuBgColor}"  BackgroundColor="{DynamicResource AppBgColor}">
+                        
+                    </Frame>-->
+            <ScrollView>
+                <!--<ListView ItemsSource="{Binding MembersList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                                <!-- Add more bindings as needed -->
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                                                </StackLayout.GestureRecognizers>
-                                            </StackLayout>
+                                    <Frame Grid.RowSpan="2" CornerRadius="50" BackgroundColor="Transparent"
+                                             HeightRequest="60" WidthRequest="60" BorderColor="{DynamicResource MainBgColor}"
+                                             HorizontalOptions="Center">
+                                        <Image
+                                               Source="avatar_man.png"
+                                               Aspect="AspectFill"
+                                               HeightRequest="60"
+                                               WidthRequest="60" />
+                                    </Frame>
 
+                                    <Label Grid.Column="1"
+                                       Text="{Binding MemberName}"
+                                       FontAttributes="Bold" />
+                                    <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Email}"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="End" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+                <CollectionView ItemsSource="{Binding MembersList}" x:Name="cvMember" 
+                            SelectionMode="Single"
+                            SelectionChanged="CollectionView_SelectionChanged"
+                            SelectedItem="{Binding SelectedMember}"
+                            IsVisible="true" 
+                            RemainingItemsThreshold="12" 
+                            EmptyView="No items to display">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                <!--<Frame Margin="0,1" BackgroundColor="LightGray" Padding="0"
+                                           BorderColor="{DynamicResource MainBgColor}">
+
+                                    </Frame>-->
+                
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30*"/>
+                                            <ColumnDefinition Width="70*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Frame  Grid.Column="0" CornerRadius="50" Grid.RowSpan="3" BackgroundColor="Transparent"
+                         HeightRequest="60" WidthRequest="60" BorderColor="{DynamicResource MainBgColor}"
+                         HorizontalOptions="Center">
+
+                                            <Image Source="avatar_man.png"
+                            HeightRequest="60" WidthRequest="60"
+                         Aspect="AspectFill"/>
                                         </Frame>
 
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </ScrollView>
-                    </Frame>
 
-                </StackLayout>
-            </Grid>
+                                        <Label Text="{Binding MemberName}" FontAttributes="Bold,Italic" TextColor="Black"
+Grid.Row="0" Grid.Column="1"/>
+                                        <Label Text="{Binding Email}" FontSize="10" TextColor="Black"
+Grid.Row="1" Grid.Column="1"/>
+                                        <Label Text="{Binding Phone}" FontSize="10" TextColor="Black"
+Grid.Row="2" Grid.Column="1"/>
+
+                                    </Grid>
+                <!-- Add more bindings as needed -->
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+            </ScrollView>
 
         </StackLayout>
-    </VerticalStackLayout>
+
+    </StackLayout>
 </ContentPage>

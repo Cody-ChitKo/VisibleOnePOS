@@ -68,6 +68,7 @@
 	  <None Remove="Resources\Images\companyLogo.png" />
 	  <None Remove="Resources\Images\document.png" />
 	  <None Remove="Resources\Images\id_card.png" />
+	  <None Remove="Resources\Images\search_icon.png" />
 	  <None Remove="Resources\Images\shop.png" />
 	  <None Remove="Resources\Images\transaction.png" />
 	</ItemGroup>
