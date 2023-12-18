@@ -57,12 +57,10 @@ public partial class MemberList : ContentPage
         {
             Debug.WriteLine("SelectedServices is null");
         }
-
-
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PushAsync(new MemberDetails(memberViewModel.SelectedMember));
+       // await Navigation.PushAsync(new MemberDetails(memberViewModel.SelectedMember));
     }
 }
