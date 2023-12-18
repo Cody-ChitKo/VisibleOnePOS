@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VisibleOnePOS.Views.Member.MemberDetails"
+             Title="MemberDetails">
+    <VerticalStackLayout>
+        <StackLayout>
+            <AbsoluteLayout Margin="0">
+                <Frame AbsoluteLayout.LayoutBounds="100, 0, 100, 100" Margin="0"
+                   CornerRadius="50" BackgroundColor="Blue">
+                    <Image Source="avatar_man.png" Margin="0"
+                    />
+                </Frame>
+
+            </AbsoluteLayout>
+
+            <StackLayout HeightRequest="230">
+                <Frame HeightRequest="220" CornerRadius="4" Margin="5"
+                   BackgroundColor="{DynamicResource MainBgColor}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Name" TextColor="Black"
+                           Grid.ColumnSpan="2" Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                        <Label x:Name="txtMemberName" TextColor="Black" FontAttributes="Bold"
+                           Grid.ColumnSpan="2" Grid.Row="1"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+
+                        <Label Text="TotalPoints" TextColor="Black"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                           Grid.Row="2" Grid.Column="0"/>
+                        <Label x:Name="txtTotalPoints" TextColor="Black"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                           Grid.Row="3" Grid.Column="0"/>
+
+
+                        <Label Text="RedeemedPoints" TextColor="Black"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                            Grid.Row="2" Grid.Column="1"/>
+                        <Label x:Name="txtRedeemedPoints" TextColor="Black"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                            Grid.Row="3" Grid.Column="1"/>
+
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

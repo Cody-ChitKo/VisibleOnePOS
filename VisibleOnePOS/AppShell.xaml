@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="VisibleOnePOS.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dashboard="clr-namespace:VisibleOnePOS.Views.Dashboard"
+    xmlns:tran="clr-namespace:VisibleOnePOS.Views.Transaction"
+    xmlns:branch="clr-namespace:VisibleOnePOS.Views.Branch"
+    xmlns:member="clr-namespace:VisibleOnePOS.Views.Member"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{DynamicResource MainBgColor}"
+    Title="VisibleOnePOS">
+    
+    <ShellContent
+        Title="Dashboard" 
+        ContentTemplate="{DataTemplate dashboard:DashboardPage}"
+        Route="DashboardPage"/>
+    <ShellContent
+        Title="Member"
+        ContentTemplate="{DataTemplate member:MemberList}"
+        Route="MemberList" Icon="id_card.png" />
+    <ShellContent
+        Title="Branch"
+        ContentTemplate="{DataTemplate  branch:BranchList}"
+        Route="BranchList" Icon="shop.png"/>
+    <ShellContent
+        Title="Transaction"
+        ContentTemplate="{DataTemplate tran:TransactionList}"
+        Route="TransactionList" Icon="transaction.png"/>
+</Shell>

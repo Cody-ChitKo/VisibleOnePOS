@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VisibleOnePOS.Views.Transaction.TransactionList"
+             Title="TransactionList"
+              xmlns:vmodel="clr-namespace:VisibleOnePOS.ViewModels.Transaction"
+             BackgroundColor="{DynamicResource AppBgColor}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vmodel:TransactionViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                
+                <StackLayout Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90*" />
+                            <ColumnDefinition Width="15*" />
+                        </Grid.ColumnDefinitions>
+                        <Entry x:Name="txtTransactionCode" Grid.Column="0"
+                            Placeholder="TransactionCode" WidthRequest="250"/>
+                        <Image Source="search_icon.png" Grid.Column="1"
+                            BackgroundColor="Transparent"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Frame CornerRadius="2" BorderColor="{DynamicResource MemuBgColor}" BackgroundColor="{DynamicResource AppBgColor}">
+                        <ScrollView>
+                            <CollectionView ItemsSource="{Binding TransactionList}"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding SelectedTransaction}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Margin="0,1" BackgroundColor="LightGray"
+                                   Padding="0">
+
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="30*"/>
+                                                        <ColumnDefinition Width="50*"/>
+                                                        <ColumnDefinition Width="20*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding TransactionDate}" Grid.RowSpan="4"
+                                               Grid.Column="0"/>
+
+                                                    <Label Text="{Binding TransactionCode}" FontAttributes="Bold,Italic" TextColor="Black"
+                                               Grid.Row="0" Grid.Column="1" FontSize="12"/>
+                                                    <Label Text="{Binding ReferenceNo}" FontSize="10" TextColor="Black"
+                                               Grid.Row="1" Grid.Column="1"/>
+                                                    
+                                                    <Label Text="{Binding SubTotal}" FontSize="10" TextColor="Black"
+                                               Grid.Row="0" Grid.Column="2"/>
+                                                    <Label Text="{Binding Status}" FontSize="10" TextColor="Black"
+                                                Grid.Row="1" Grid.Column="2"/>
+                                                    <Label Text="{Binding Total}" FontSize="10" TextColor="Black"
+                                                Grid.Row="2" Grid.Column="2"/>
+
+                                                </Grid>
+
+                                                <!--<Label Text="{Binding TotalPoints}" FontSize="10" TextColor="Black"/>
+                                    <Label Text="{Binding RedeemedPoints}" FontSize="10" TextColor="Black"/>
+                                    <Label Text="{Binding Status}" FontSize="10" TextColor="Black"/>
+                                    <Label Text="{Binding RegistrationDate}" FontSize="10" TextColor="Black"/>-->
+                                                <!-- Add more bindings as needed -->
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+                                        </Frame>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                    </Frame>
+
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VisibleOnePOS.Views.Dashboard.DashboardPage"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             Title="Dashboard" BackgroundColor="{DynamicResource AppBgColor}">
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="5,0"
+        Spacing="10">
+            <Frame Padding="0" Margin="0,5,0,0" HeightRequest="40" 
+                   BackgroundColor="LightGray">
+                <StackLayout HeightRequest="50" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="85*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="shop.png" HeightRequest="30" WidthRequest="30"/>
+                        <Picker x:Name="picBranch" Grid.Column="1" ItemsSource="{Binding Branches}"
+                                ItemDisplayBinding="{Binding BranchName}"
+                                SelectedItem="{Binding SelectedBranch}"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+             <Frame Margin="0" Padding="5" BackgroundColor="White">
+                 
+                    <Grid Padding="0" Margin="0,30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="PaleVioletRed" Margin="0,0,1,0" Padding="0"
+                           CornerRadius="10" HeightRequest="70">
+                        <StackLayout Margin="0" Padding="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image Source="coins.png" BackgroundColor="Transparent"
+                                    WidthRequest="30" HeightRequest="30" Margin="0" Aspect="Fill"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Monthly Sale" FontSize="12" HorizontalOptions="CenterAndExpand"
+                                    TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label Text="HK$17,720.60" FontSize="10" HorizontalOptions="CenterAndExpand"
+                                 TextColor="White"/>
+
+                            <Label Text="+ 28.1%" FontSize="8" HorizontalOptions="CenterAndExpand"
+                                 TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Green"  Margin="0" Padding="0"
+                            CornerRadius="10" HeightRequest="70">
+                        <StackLayout Margin="0" Padding="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                             Grid.Column="0">
+                                    <Image Source="document.png" BackgroundColor="Transparent"
+                                        WidthRequest="30" HeightRequest="30" Margin="0"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Monthly New Orders" FontSize="10" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label Text="87" FontSize="10" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+
+                            <Label Text="+5.2%" FontSize="8" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="Purple" Margin="0" Padding="0"
+                            CornerRadius="10" HeightRequest="70">
+                        <StackLayout Margin="0" Padding="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                      Grid.Column="0">
+                                    <Image Source="avatar_man.png" BackgroundColor="Transparent"
+                                        WidthRequest="30" HeightRequest="30" Margin="0"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Total Customers" FontSize="10" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label Text="452" FontSize="10" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+
+                            <Label Text="+5.2%" FontSize="8" HorizontalOptions="CenterAndExpand"
+                                        TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="BlueViolet" Margin="0" Padding="0"
+                        CornerRadius="10" HeightRequest="70">
+                        <StackLayout Margin="0" Padding="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                    Grid.Column="0">
+                                    <Image Source="box_package_open.png" BackgroundColor="Transparent"
+                    WidthRequest="30" HeightRequest="30" Margin="0"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Low Stock Products" FontSize="10" HorizontalOptions="CenterAndExpand"
+                    TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label Text="20" FontSize="10" HorizontalOptions="CenterAndExpand"
+                    TextColor="White"/>
+
+                            <Label Text="+5.2%" FontSize="8" HorizontalOptions="CenterAndExpand"
+                    TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+
+                    </Grid>
+             </Frame>
+
+
+            <Frame HeightRequest="300" Padding="0" Margin="0" BackgroundColor="White">
+                <micro:ChartView x:Name="chartView" HeightRequest="200" Margin="2"
+                                 BackgroundColor="Transparent">
+
+                </micro:ChartView>
+            </Frame>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
